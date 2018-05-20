@@ -31,13 +31,13 @@ Basis ist Python 3, kann aber auch unter Python 2.7 verwendet werden, wenn Sie d
 `    protocol = 'jsonrpc'`  
   
 ----
-*Powered by*
-*Equitania Software GmbH*
-*Weiherstrassse 13*
-*75173 Pforzheim*
-*Germany - Deutschland*
-*www.myodoo.de / www.equitania.de*
-
+*Powered by*  
+*Equitania Software GmbH*  
+*Weiherstrassse 13*  
+*75173 Pforzheim*  
+*Germany - Deutschland*  
+*www.myodoo.de / www.equitania.de*  
+  
 ----
   
 [Odoo Kochbuch](https://leanpub.com/odoo-kochbuch/read_sample)  
