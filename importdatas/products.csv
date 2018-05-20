@@ -1,0 +1,9 @@
+Import,Produktnr,Herstellernr,Lieferantennr,Produktname,Bild,Produktart,Kategorie,Einkaufspreis,Verkaufspreis,Einheit,Menge,Einkaufseinheit,Gewicht KG,Lieferzeit VK,Beschreibung,Einkaufstext
+J,208000,CARD208000,11000,Standard Plastikkarten Blanko,pvc_karten_blanko_01.png,Lager,Ausweise,0.11,0.33,Stück,3,Stück,10,14,Unsere Plastikkarten sind aus hochwertigem PVC und nach ISO-Norm 7810 mit dem Standardmaß 86 x 54 (dies entspricht Kreditkartenformat) produziert und verfügen über hohe Qualität.,"PVC-Karte blanko ISO-Format, Abmessungen: 85 x 54 mm, Kartenstärke: 0,76 mm, Farbe: Weiß, Material: PVC, Ausführung: beidseitig glänzend laminiert"
+J,DL-0001,,,Software-Dienstleistung,Zeiterfassung.png,Dienstleistung,Service,85,125,Stunde(n),,Stunde(n),,1,Dienstleistung im Bereich Software-Entwicklung ,
+J,MRP-00001,PUR-00001,20104,Platine für Bauteil,platine.png,Lager,Fertigung,4.6,,Stück,,Stück,0.045,14,Platine für Fertigungsteil zur Baugruppe,Platine bestückt
+J,MRP-00002,PUR-00002,20104,Schraube,schraube.png,Verbrauchsmaterial,Fertigung,0.01,,Stück,,1.000 Stück,0.001,2,Schraube für Fertigung,Schraube verzinkt
+J,MRP-00003,EK-00003,11000,Barcode Etikett,barcode.png,Verbrauchsmaterial,Fertigung,0.003,,Stück,1000,Stück,0.0002,,Barcode Etikett für Fertigung,Wasserbeständiger Barcode Label
+J,MRP-00004,EK-00004,11000,Verpackung,box.png,Verbrauchsmaterial,Fertigung,0.22,,Stück,,Stück,0.25,,Produktverpackung,Spezialbox
+J,MRP-MAIN-01,,,Produktionsartikel,fertigung.png,Lager,Fertigung,,70,Stück,,Stück,5,,Erster Fertigungsartikel,
+J,MRP-00003,PUR-00003,20104,Schraube Gehäuseverschraubung,Schraube_A.jpg,Verbrauchsmaterial,Fertigung,0.55,,Stück,,100 Stück,0.1,2,Schraube für Gehäuse BDE PC,"Schraube verzinkt, Stern Imbus"

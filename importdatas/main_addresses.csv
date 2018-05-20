@@ -1,0 +1,6 @@
+Import,Unternehmen,Kundennr,Lieferantennr,Anrede,Firmenname 1,Firmenname 2,Firmenname 3,Strasse,Hausnummer,PLZ,Ort,Telefon 1,Telefon 2,Telefax,E-Mail 1,E-Mail 2,Homepage,USTID,Land,Region,Logo,Kategorie
+J,J,10567,75235,,Equitania Software GmbH,,,Weiherstrasse ,13,75173,Pforzheim,+49 7231 16604 0,+49 7231 16604 100,+49 7231 16604 200,info@equitania.de,info@myodoo.de,www.myodoo.de,DE814544688,DE,Baden-Württemberg,equitania_logo.png,Software
+J,J,20104,80222,,CMC Klebetechnik GmbH,Ihr Partner für Klebeband- und Beschichtungslösungen,,Rudolf-Diesel-Straße,4,67227,Frankenthal,06223 872 300,,06223 872 390,info@cmc.de,,www.cmc.de,DE 121 300 325,DE,Rheinland Pfalz,cmc_klebetechnik.png,Industrie
+J,J,,75444,,ID Ausweissysteme GmbH,Ausweissysteme und Kartenzubehör für Unternehmen,,Giesenheide ,40,40724,Hilden,+49 2103 33275-0,,+49 2103 33275-111,info@idausweissysteme.com,,www.idausweissysteme.com,DE 121 299 571,DE,Nordrhein-Westfalen,id_ausweissysteme.png,Zugangssysteme
+J,J,11000,,,coloprint GmbH,Ihr Partner für Kriminal- und Polizeitechnik,,Giesenheide ,40,40724,Hilden,+49 2103 91065-0,,+49 2103 91065-111,info@coloprint.de,,www.coloprint.de,DE 121 292 871,DE,Nordrhein-Westfalen,coloprint.png,Kriminaltechnik
+J,N,,76007,Herr,Kinkel,Uwe,uks,Vor den Brüchen,5,57462,Olpe,+49 2761 969596,,,u.kinkel@equitania.de,,,,DE,Nordrhein-Westfalen,uwe_kinkel.jpg,Vertrieb
