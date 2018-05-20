@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# Dieses Skript stellt Hilfsklassen für Länderkodierung von Odoo zur Verfügung
-# This script provides help classes for country coding of Odoo
+# Dieses Skript stellt Hilfsklassen für Länderkodierung von Odoo zur Verfügung.
+# This script provides help classes for country coding of Odoo.
 # Version 2.0.0
 # Date 20.05.2018
 ##############################################################################
