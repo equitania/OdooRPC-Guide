@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Dieses Skript importiert Produkte aus einen CSV Datei
 # This script imports products from a CSV file
-# Version 2.0.0
-# Date 20.05.2018
+# Version 2.0.1
+# Date 28.05.2018
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution
@@ -43,12 +43,12 @@ STOCK_CHANGE_PRODUCT_QTY = odoo.env['stock.change.product.qty']
 _count = 0
 _import_csv_file = "products.csv"
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=';')
+_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 _rows = list(_csv_reader)
 _totalcount = len(_rows)
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=';')
+_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 # Store start time
 start_time = time.time()

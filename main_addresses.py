@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Dieses Skript importiert Hauptadressen aus einen CSV Datei
 # This script imports main addresses from a CSV file
-# Version 2.0.0
-# Date 20.05.2018
+# Version 2.0.1
+# Date 28.05.2018
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution
@@ -41,12 +41,12 @@ ACCOUNT_ACCOUNT = odoo.env['account.account']
 _count = 0
 _import_csv_file = "main_addresses.csv"
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=';')
+_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 _rows = list(_csv_reader)
 _totalcount = len(_rows)
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=';')
+_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 # Bisherige Debitoren- und Kreditoren Nummern merken
 # Wird nur benötigt, wenn Sie unser FIBU Module benutzen https://www.myodoo.de/finanzpaket
