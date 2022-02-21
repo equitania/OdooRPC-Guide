@@ -49,3 +49,23 @@ pip-selfcheck.json
 .mailmap
 ~$*
 __pycache__/
+
+# mac
+.DS_Store
+.gitkeep
+
+# PyCharm
+.idea/
+.idea
+
+# Eclipse
+.project
+.pydevproject
+.settings/
+
+# odoo
+.mailmap
+
+# VSCode
+.vscode
+.vscode/settings.json

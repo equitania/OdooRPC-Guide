@@ -1,13 +1,20 @@
 # OdooRPC-Guide
 Hier erklären wir wie man mittels OdooRPC Daten in Odoo mittels WEB-API importieren kann.  
   
-Damit kann man Daten in Odoo importieren oder exportieren.  
-  
-Basis ist Python 3, kann aber auch unter Python 2.7 verwendet werden, wenn Sie die "print" Befehle anpassen und beim Bildimport anpassungen machen.  
+Unterstützte Funktionen:  
+- Zugriff auf alle Datenmodellmethoden (auch Browse) mit einer API, die der serverseitigen API ähnelt,  
+- Verwendung benannter Parameter mit Modellmethoden,  
+- automatisches Senden des Benutzerkontextes mit Unterstützung für die Internationalisierung,  
+- Durchsuchen von Datensätzen,  
+- Ausführen von Workflows,  
+- Datenbanken verwalten,  
+- Herunterladen von Berichten,  
+- JSON-RPC-Protokoll (SSL unterstützt),  
 
+  
 ## Voraussetzungen 
-* Python 3
-* OdooRPC https://pythonhosted.org/OdooRPC/  
+* Python 3.6 oder höher  
+* OdooRPC https://pypi.org/project/OdooRPC/ Dokumentation https://pythonhosted.org/OdooRPC/  
   
 ## Skripte  
 * [base_helper.py](https://github.com/equitania/OdooRPC-Guide/blob/master/base_helper.py) - Dieses Skript stellt die Verbindung zum Odoo Server her und stellt einige Hilfsklassen zur Verfügung.
