@@ -23,13 +23,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import base_helper as helper
+from odoorpc_toolbox import base_helper
+import os
 from datetime import datetime
 
 print ("CRON Parameter setzen..")
 
 # Connect to the odoo system
-odoo = helper.odoo_connect()
+base_path = os.path.dirname(os.path.abspath(__file__))
+# Verbindung
+helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
+odoo = helper.odoo
 
 IR_CRON = odoo.env['ir.cron']
 

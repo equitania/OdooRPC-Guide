@@ -14,7 +14,8 @@ Unterstützte Funktionen:
   
 ## Voraussetzungen 
 * Python 3.6 oder höher  
-* OdooRPC https://pypi.org/project/OdooRPC/ Dokumentation https://pythonhosted.org/OdooRPC/  
+* OdooRPC https://pypi.org/project/OdooRPC/ Dokumentation https://pythonhosted.org/OdooRPC/ 
+* odoorpc-toolbox
   
 ## Skripte  
 * [base_helper.py](https://github.com/equitania/OdooRPC-Guide/blob/master/base_helper.py) - Dieses Skript stellt die Verbindung zum Odoo Server her und stellt einige Hilfsklassen zur Verfügung.
@@ -27,15 +28,7 @@ Unterstützte Funktionen:
 * [set_ir_actions_report.py](https://github.com/equitania/OdooRPC-Guide/blob/master/set_ir_actions_report.py) - Dieses Skript demonstiert wie man die Dateinamen von Druckdokumenten anpasst und diese im Datesystem automatisch speichert.
   
 ## Start
-Öffnen Sie die Datei [base_helper.py](https://github.com/equitania/OdooRPC-Guide/blob/master/base_helper.py) und passen Sie die Konfiguration an.  
-  
-`    # Use this for http`  
-`    odoo_address = '0.0.0.0'`  
-`    odoo_port = 8069`  
-`    user = 'admin'`  
-`    pw = 'dbpassword'`  
-`    db = 'dbname'`  
-`    protocol = 'jsonrpc'`  
+Öffnen Sie die Yamal config.yaml und passen Sie die Konfiguration an.
   
 ----
 *Powered by*  

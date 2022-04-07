@@ -23,14 +23,21 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import base_helper as helper
+from odoorpc_toolbox import base_helper
+import os
 
 print ("Mengeneinheit werden überprüft und ggf. gesetzt...")
 
 # Connect to the odoo system
-odoo = helper.odoo_connect()
+base_path = os.path.dirname(os.path.abspath(__file__))
+# Verbindung
+helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
+odoo = helper.odoo
 
-PRODUCT_UOM = odoo.env['product.uom']
+if helper.odoo_version == 10:
+    PRODUCT_UOM = odoo.env['product.uom']
+else:
+    PRODUCT_UOM = odoo.env['uom.uom']
 
 #  100 Stück Einheit anlegen
 _uom_id = PRODUCT_UOM.search([('name', '=', "100 Stück")])

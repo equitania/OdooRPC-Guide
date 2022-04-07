@@ -1,0 +1,8 @@
+# Server configuration
+Server:
+  url: https://dev03.myodoo.sh/                             # URL to Odoo - for localhost write http://localhost
+  port: 443                                         # Port of Odoo - Remote over SSL write 443 - for localhost write 8069 or other Odoo port
+  user: admin@ownerp.io                                       # Your Odoo admin-user or user with setting rights
+  password: ownerp2020                                      # Password for the user
+  database: v14_basis                                      # Name of the Odoo database
+  protocol: jsonrpc+ssl                                 # Protocol for the request, jsonrpc without ssl, jsonrpc+ssl with ssl

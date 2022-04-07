@@ -26,13 +26,17 @@
 
 import csv
 import get_country_id
-import base_helper as helper
 import time
+from odoorpc_toolbox import base_helper
+import os
 
-
-
+base_path = os.path.dirname(os.path.abspath(__file__))
 # Verbindung
-odoo = helper.odoo_connect()
+helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
+odoo = helper.odoo
+
+importcsv = base_path + "/importdatas/"
+importimages = base_path + "/importdatas/images"
 
 RES_PARTNER = odoo.env['res.partner']
 ACCOUNT_ACCOUNT = odoo.env['account.account']
@@ -41,12 +45,10 @@ ACCOUNT_ACCOUNT = odoo.env['account.account']
 _count = 0
 _import_csv_file = "main_addresses.csv"
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
+_csv_reader = csv.DictReader(open(importcsv + _import_csv_file), delimiter=',')
 
 _rows = list(_csv_reader)
 _totalcount = len(_rows)
-
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 # Bisherige Debitoren- und Kreditoren Nummern merken
 # Wird nur benötigt, wenn Sie unser FIBU Module benutzen https://www.myodoo.de/finanzpaket
@@ -60,7 +62,7 @@ start_time = time.time()
 print("Printing this string takes ...")
 
 
-for _main_addresses in _csv_reader:
+for _main_addresses in _rows:
 
     _do_import = _main_addresses["Import"].strip()
     if _do_import != "J":
@@ -81,23 +83,31 @@ for _main_addresses in _csv_reader:
     _customerno = _main_addresses["Kundennr"]
     if _customerno != None and _customerno != "":
         _partner_data['customer_number'] = _customerno
-        _partner_data['customer'] = True
+        if helper.odoo_version in [10,11,12]:
+            _partner_data['customer'] = True
+        else:
+            _partner_data['customer_rank'] = 1
     else:
-        _partner_data['customer'] = False
         _customerno = None
 
     _supplierno = _main_addresses["Lieferantennr"]
     if _supplierno != None and _supplierno != "":
         _partner_data['supplier_number'] = _supplierno
-        _partner_data['supplier'] = True
+        if helper.odoo_version in [10,11,12]:
+            _partner_data['supplier'] = True
+        else:
+            _partner_data['supplier_rank'] = 1
     else:
-        _partner_data['supplier'] = False
         _supplierno = None
 
     # Logo
     _logo = _main_addresses["Logo"].strip()
     if _logo != None and _logo != "":
-        _partner_data['image'] = helper.get_picture(helper.importimages + _logo)
+        eq_image = helper.get_picture(importimages + _logo)
+        if helper.odoo_version in [10,11,12]:
+            _partner_data['image'] = eq_image
+        else:
+            _partner_data['image_1920'] = eq_image
 
     # Name 1
     _name1 = _main_addresses["Firmenname 1"].strip()
@@ -175,7 +185,10 @@ for _main_addresses in _csv_reader:
     # Fax
     _fax = _main_addresses["Telefax"].strip()
     if _fax != None and _fax != "":
-        _partner_data['fax'] = _fax
+        if helper.odoo_version in [10,11]:
+            _partner_data['fax'] = _fax
+        else:
+            _partner_data['eq_fax'] = _fax
 
     # Email
     _email = _main_addresses["E-Mail 1"].strip()
@@ -204,7 +217,7 @@ for _main_addresses in _csv_reader:
     if len(_category_name) != 0 and _category_name != None:
         _category_id = helper.get_res_partner_category_id(_category_name)
         if _category_id != 0 and _category_id != None:
-            _partner_data['category_id'] = [(6, 0, [_category_id])]
+            _partner_data['category_id'] = [(6, 0, _category_id)]
 
     if len(_partner_id) == 0:
         # Kunden/Debitoren Zähler setzen

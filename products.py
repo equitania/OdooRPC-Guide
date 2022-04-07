@@ -24,13 +24,17 @@
 #
 ##############################################################################
 import csv
-import base_helper as helper
+from odoorpc_toolbox import base_helper
+import os
 import time
 
 print ("Artikelimport gestartet.")
 
 # Connect to the odoo system
-odoo = helper.odoo_connect()
+base_path = os.path.dirname(os.path.abspath(__file__))
+# Verbindung
+helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
+odoo = helper.odoo
 
 PRODUCT_TEMPLATE         = odoo.env['product.template']
 PRODUCT_CATEGORY         = odoo.env['product.category']
@@ -41,14 +45,14 @@ STOCK_CHANGE_PRODUCT_QTY = odoo.env['stock.change.product.qty']
 #STOCK_LOCATION_ROUTE     = odoo.env['stock.location.route']
 
 _count = 0
-_import_csv_file = "products.csv"
+_import_csv_file = "/importdatas/products.csv"
+importimages = base_path + "/importdatas/images"
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
+_csv_reader = csv.DictReader(open(base_path + _import_csv_file), delimiter=',')
 
 _rows = list(_csv_reader)
 _totalcount = len(_rows)
 
-_csv_reader = csv.DictReader(open(helper.importcsv + _import_csv_file), delimiter=',')
 
 # Store start time
 start_time = time.time()
@@ -56,7 +60,7 @@ start_time = time.time()
 # Perform any action like print a string
 print("Printing this string takes ...")
 
-for _products in _csv_reader:
+for _products in _rows:
 
     _do_import = _products["Import"].strip()
     if _do_import != "J":
@@ -78,7 +82,11 @@ for _products in _csv_reader:
     # Produktbild
     _picture = _products["Bild"].strip()
     if _picture != None and _picture != "":
-        _product_data['image'] = helper.get_picture(helper.importimages + _picture)
+        eq_image = helper.get_picture(importimages + _picture)
+        if helper.odoo_version in [10,11,12]:
+            _product_data['image'] = eq_image
+        else:
+            _product_data['image_1920'] = eq_image
 
     # Set product data
     _product_data['active'] = True

@@ -23,14 +23,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import base_helper as helper
+from odoorpc_toolbox import base_helper
+import os
 
 print ("Einstellungen der Reports nun gesetzt...")
 
 # Connect to the odoo system
-odoo = helper.odoo_connect()
+base_path = os.path.dirname(os.path.abspath(__file__))
+helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
+odoo = helper.odoo
 
-IR_ACTION_REPORT_XML = odoo.env['ir.actions.report.xml']
+IR_ACTION_REPORT_XML = odoo.env['ir.actions.report']
 REPORT_PAPERFORMAT = odoo.env['report.paperformat']
 
 _report_format_id = REPORT_PAPERFORMAT.search([('name', '=', "European A4")])
@@ -38,7 +41,8 @@ _format = REPORT_PAPERFORMAT.browse(_report_format_id)
 
 # Rechnungen
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Rechnungen"), ('model', '=', "account.invoice")])
-if len(_report_id) != 0:
+eq_format_found = len(_report_id) != 0
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "(object.state in ('open','paid')) and ('Rechnung-'+(object.number or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "(object.state in ('open','paid')) and ('Rechnung-'+(object.number or '').replace('/','')+'.pdf')"
@@ -53,7 +57,7 @@ else:
 
 # Angebot / Bestellung (Verkauf)
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Angebot / Bestellung"), ('model', '=', "sale.order")])
-if len(_report_id) != 0:
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "(object.state in ('draft','sent')) and ('Angebot-' + (object.name or '').replace('/','')+'.pdf') or (object.state in ('sale','done')) and ('Auftrag-' + (object.name or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "(object.state in ('draft','sent')) and ('Angebot-' + (object.name or '').replace('/','')+'.pdf') or (object.state in ('sale','done')) and ('Auftrag-' + (object.name or '').replace('/','')+'.pdf')"
@@ -68,7 +72,7 @@ else:
 
 # Angebotsanfrage (Einkauf)
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Angebotsanfrage"), ('model', '=', "purchase.order")])
-if len(_report_id) != 0:
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "('Einkaufanfrage-' + (object.name or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "('Einkaufanfrage-' + (object.name or '').replace('/','')+'.pdf')"
@@ -82,7 +86,7 @@ else:
 
 # Beschaffungsauftrag (Einkauf)
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Beschaffungsauftrag"), ('model', '=', "purchase.order")])
-if len(_report_id) != 0:
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "('Einkauf-' + (object.name or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "('Einkauf-' + (object.name or '').replace('/','')+'.pdf')"
@@ -96,7 +100,7 @@ else:
 
 # Packvorgänge (Lager)
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Packvorgänge"), ('model', '=', "stock.picking")])
-if len(_report_id) != 0:
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "('Packschein-' + (object.name or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "('Packschein-' + (object.name or '').replace('/','')+'.pdf')"
@@ -110,7 +114,7 @@ else:
 
 # Lieferschein (Lager)
 _report_id = IR_ACTION_REPORT_XML.search([('name', '=', "Lieferschein"), ('model', '=', "stock.picking")])
-if len(_report_id) != 0:
+if eq_format_found and len(_report_id) != 0:
     _report_data = {}
     _report_data['attachment'] = "('Lieferschein-' + (object.name or '').replace('/','')+'.pdf')"
     _report_data['print_report_name'] = "('Lieferschein-' + (object.name or '').replace('/','')+'.pdf')"
