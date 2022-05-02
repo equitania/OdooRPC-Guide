@@ -18,7 +18,10 @@ Unterstützte Funktionen:
 * odoorpc-toolbox `pip install odoorpc-toolbox`  
   
 ## Skripte  
-* [base_helper.py](https://github.com/equitania/OdooRPC-Guide/blob/master/base_helper.py) - Dieses Skript stellt die Verbindung zum Odoo Server her und stellt einige Hilfsklassen zur Verfügung.
+
+###  Start
+Öffnen Sie die Yamal config.yaml und passen Sie die Konfiguration an. [config.yaml](https://github.com/equitania/OdooRPC-Guide/blob/master/config.yaml)  
+  
 * [get_country_id.py](https://github.com/equitania/OdooRPC-Guide/blob/master/get_country_id.py) - Dieses Skript stellt Hilfsklassen für Länderkodierung von Odoo zur Verfügung.
 * [main_addresses.py](https://github.com/equitania/OdooRPC-Guide/blob/master/main_addresses.py) - Dieses Skript importiert Hauptadressen aus einen CSV Datei.
 * [products.py](https://github.com/equitania/OdooRPC-Guide/blob/master/products.py) - Dieses Skript importiert Produkte aus einen CSV Datei.
@@ -27,9 +30,6 @@ Unterstützte Funktionen:
 * [ir_cron.py](https://github.com/equitania/OdooRPC-Guide/blob/master/ir_cron.py) - Dieses Skript demonstiert Cronjobs anzupassen.
 * [set_ir_actions_report.py](https://github.com/equitania/OdooRPC-Guide/blob/master/set_ir_actions_report.py) - Dieses Skript demonstiert wie man die Dateinamen von Druckdokumenten anpasst und diese im Datesystem automatisch speichert.
 * [systeminfo.py](https://github.com/equitania/OdooRPC-Guide/blob/master/systeminfo.py) - Dieses Skript demonstiert wie man Systeminformationen ausliest.  
-  
-## Start
-Öffnen Sie die Yamal config.yaml und passen Sie die Konfiguration an.
   
 ----
 *Powered by*  
