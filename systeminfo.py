@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# Dieses Skript erzeugt neue Mengeneinheiten für Produkte
-# This script creates new units of measure for products
-# Version 2.0.1
-# Date 01.05.2022
+# Dieses Skript importiert Produkte aus einen CSV Datei
+# This script imports products from a CSV file
+# Version 1.0.0
+# Date 02.05.2022
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution
@@ -26,7 +26,7 @@
 from odoorpc_toolbox import base_helper
 import os
 
-print ("Mengeneinheit werden überprüft und ggf. gesetzt...")
+print ("Server informations:")
 
 # Connect to the odoo system
 base_path = os.path.dirname(os.path.abspath(__file__))
@@ -34,31 +34,20 @@ base_path = os.path.dirname(os.path.abspath(__file__))
 helper = base_helper.EqOdooConnection(base_path + '/config.yaml')
 odoo = helper.odoo
 
-if helper.odoo_version == 10:
-    PRODUCT_UOM = odoo.env['product.uom']
-else:
-    PRODUCT_UOM = odoo.env['uom.uom']
+# Current user
+user = odoo.env.user
+print('Your user: ' + user.name)            # name of the user connected
+print('Your user company: ' + user.company_id.name) # the name of its company
 
-#  100 Stück Einheit anlegen
-_uom_id = PRODUCT_UOM.search([('name', '=', "100 Stück")])
-if len(_uom_id) == 0:
-    _product_uom_data = {
-        'name': "100 Stück",
-        'uom_type': "bigger",
-        'factor_inv': 100.00,
-        'category_id': 1
-    }
-    _uom_id = PRODUCT_UOM.create(_product_uom_data)
-    print("Einheit 100 Stück ergänzt")
+print("Your databases:")
+for x in range(len(odoo.db.list())):
+    print (odoo.db.list()[x])
 
-#  1.000 Stück Einheit anlegen
-_uom_id = PRODUCT_UOM.search([('name', '=', "1.000 Stück")])
-if len(_uom_id) == 0:
-    _product_uom_data = {
-        'name': "1.000 Stück",
-        'uom_type': "bigger",
-        'factor_inv': 1000.00,
-        'category_id': 1
-    }
-    _uom_id = PRODUCT_UOM.create(_product_uom_data)
-    print("Einheit 1.000 Stück ergänzt")
+print("Your odoo config:")
+print(odoo.config)
+
+print("Your context:")
+print(odoo.env.context)
+
+
+

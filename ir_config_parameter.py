@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Dieses Skript demonstiert Konfigurationsparameter anzupassen.
 # This script denies to adjust configuration parameters.
-# Version 2.0.0
-# Date 20.05.2018
+# Version 2.0.1
+# Date 01.05.2022
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution

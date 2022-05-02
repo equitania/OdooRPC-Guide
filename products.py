@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Dieses Skript importiert Produkte aus einen CSV Datei
 # This script imports products from a CSV file
-# Version 2.0.1
-# Date 28.05.2018
+# Version 2.0.2
+# Date 01.05.2022
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution

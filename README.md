@@ -14,8 +14,8 @@ Unterstützte Funktionen:
   
 ## Voraussetzungen 
 * Python 3.6 oder höher  
-* OdooRPC https://pypi.org/project/OdooRPC/ Dokumentation https://pythonhosted.org/OdooRPC/ 
-* odoorpc-toolbox
+* OdooRPC https://pypi.org/project/OdooRPC/ Dokumentation https://pythonhosted.org/OdooRPC/  `pip install odoorpc`  
+* odoorpc-toolbox `pip install odoorpc-toolbox`  
   
 ## Skripte  
 * [base_helper.py](https://github.com/equitania/OdooRPC-Guide/blob/master/base_helper.py) - Dieses Skript stellt die Verbindung zum Odoo Server her und stellt einige Hilfsklassen zur Verfügung.
@@ -26,6 +26,7 @@ Unterstützte Funktionen:
 * [ir_config_parameter.py](https://github.com/equitania/OdooRPC-Guide/blob/master/ir_config_parameter.py) - Dieses Skript demonstiert Konfigurationsparameter anzupassen.
 * [ir_cron.py](https://github.com/equitania/OdooRPC-Guide/blob/master/ir_cron.py) - Dieses Skript demonstiert Cronjobs anzupassen.
 * [set_ir_actions_report.py](https://github.com/equitania/OdooRPC-Guide/blob/master/set_ir_actions_report.py) - Dieses Skript demonstiert wie man die Dateinamen von Druckdokumenten anpasst und diese im Datesystem automatisch speichert.
+* [systeminfo.py](https://github.com/equitania/OdooRPC-Guide/blob/master/systeminfo.py) - Dieses Skript demonstiert wie man Systeminformationen ausliest.  
   
 ## Start
 Öffnen Sie die Yamal config.yaml und passen Sie die Konfiguration an.

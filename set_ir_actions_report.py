@@ -3,7 +3,7 @@
 # Dieses Skript demonstiert wie man die Dateinamen von Druckdokumenten anpasst und diese im Datesystem automatisch speichert.
 # This script demonstrates how to customize the file names of print documents and save them automatically in the file system.
 # Version 2.0.0
-# Date 20.05.2018
+# Date 01.05.2022
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution
