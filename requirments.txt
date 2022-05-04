@@ -1,0 +1,3 @@
+OdooRPC==0.8.0
+odoorpc-toolbox==0.0.2
+vat-format-checker==0.0.4

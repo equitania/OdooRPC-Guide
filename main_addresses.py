@@ -29,6 +29,7 @@ import get_country_id
 import time
 from odoorpc_toolbox import base_helper
 import os
+from pyVat.api import Validator
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 # Verbindung
@@ -208,7 +209,9 @@ for _main_addresses in _rows:
     # UST ID
     _vat = _main_addresses["USTID"].strip()
     if _vat != None and _vat != "":
-        _partner_data['vat'] = _vat
+        validator = Validator(_vat)
+        if validator.validate() is True:
+            _partner_data['vat'] = _vat
 
 
     # ---------------------------Schlagwoerter--------------------------------------------------

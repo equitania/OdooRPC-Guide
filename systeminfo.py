@@ -49,5 +49,5 @@ print(odoo.config)
 print("Your context:")
 print(odoo.env.context)
 
-
+print("Odoo version: " + str(helper.odoo_version))
 
