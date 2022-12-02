@@ -258,7 +258,7 @@ def get_odoo_country_id(_country):
         _odoo_country_id = 106
     if _country == u'IRAQ' or _country == u'IRAK' or _country == u'IQ':
         _odoo_country_id = 107
-    if _country == u'IRAN' or _country == u'ICH RANNTE' or _country == u'IR':
+    if _country == u'IRAN' or _country == u'Islamische Republik Iran' or _country == u'IR':
         _odoo_country_id = 108
     if _country == u'ICELAND' or _country == u'ISLAND' or _country == u'IS':
         _odoo_country_id = 109
@@ -478,7 +478,7 @@ def get_odoo_country_id(_country):
         _odoo_country_id = 216
     if _country == u'FRENCH SOUTHERN TERRITORIES' or _country == u'SÜDFRANZÖSISCHE TERRITORIEN' or _country == u'TF':
         _odoo_country_id = 217
-    if _country == u'TOGO' or _country == u'GEHEN' or _country == u'TG':
+    if _country == u'TOGO' or _country == u'Republik Togo' or _country == u'TG':
         _odoo_country_id = 218
     if _country == u'THAILAND' or _country == u'THAILAND' or _country == u'TH':
         _odoo_country_id = 219
