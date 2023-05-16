@@ -51,17 +51,11 @@ _csv_reader = csv.DictReader(open(importcsv + _import_csv_file), delimiter=',')
 _rows = list(_csv_reader)
 _totalcount = len(_rows)
 
-# Bisherige Debitoren- und Kreditoren Nummern merken
-# Wird nur benötigt, wenn Sie unser FIBU Module benutzen https://www.myodoo.de/finanzpaket
-_old_payable_account_number = str(helper.get_ir_sequence_number_next_actual("partner.auto.payable"))
-_old_receivable_account_number = str(helper.get_ir_sequence_number_next_actual("partner.auto.receivable"))
-
 # Store start time
 start_time = time.time()
 
 # Perform any action like print a string
 print("Printing this string takes ...")
-
 
 for _main_addresses in _rows:
 
@@ -223,16 +217,8 @@ for _main_addresses in _rows:
             _partner_data['category_id'] = [(6, 0, _category_id)]
 
     if len(_partner_id) == 0:
-        # Kunden/Debitoren Zähler setzen
-        if _customerno != None and _customerno != "":
-            helper.set_ir_sequence_number_next_actual("partner.auto.receivable", _customerno)
-        # Lieferanten/Kreditoren Zähler setzen
-        if _supplierno != None and _supplierno != "":
-            helper.set_ir_sequence_number_next_actual("partner.auto.payable", _supplierno)
         _res_partner_id = RES_PARTNER.create(_partner_data)
         _importtype = " importiert "
-        _res_partner = RES_PARTNER.browse(_res_partner_id)
-        _temp_customer_number = _res_partner.customer_number
     else:
         _res_partner = RES_PARTNER.browse(_partner_id)
         _res_partner.write(_partner_data)
@@ -240,10 +226,6 @@ for _main_addresses in _rows:
 
     _count += 1
     print ("Adresse mit KD-Nr. " + str(_customerno) + " / Lieferantennr. " + str(_supplierno) + " / " + _name1 + _importtype + " - bereits " + str(_count) + " von " + str(_totalcount) + " Positionen..")
-
-# Temporär Debitoren- und Kreditoren Nummern zurücksetzen
-helper.set_ir_sequence_number_next_actual("partner.auto.payable",_old_payable_account_number)
-helper.set_ir_sequence_number_next_actual("partner.auto.receivable",_old_receivable_account_number)
 
 # Store end time
 end_time = time.time()
