@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # Dieses Skript importiert Hauptadressen aus einen CSV Datei
 # This script imports main addresses from a CSV file
-# Version 2.0.2
-# Date 01.05.2022
+# Version 2.0.3
+# Date 05.06.2023
 ##############################################################################
 #
 #    Python Script 3 for Odoo, Open Source Management Solution
@@ -191,7 +191,7 @@ for _main_addresses in _rows:
         _partner_data['email'] = _email
 
     # Email 2
-    _email2 = _main_addresses["E-Mail 1"].strip()
+    _email2 = _main_addresses["E-Mail 2"].strip()
     if _email2 != None and _email2 != "":
         _partner_data['eq_email2'] = _email2
 
